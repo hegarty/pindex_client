@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import Input from "../presentational/Input";
 class FormContainer extends Component {
   constructor() {
+	console.log('yes');
+	/*
 	super();
 	this.state = {
 	  seo_title: ""
 	};
 	this.handleChange = this.handleChange.bind(this);
-  }
+  */
+	}
   handleChange(event) {
 	this.setState({ [event.target.id]: event.target.value });
   }
