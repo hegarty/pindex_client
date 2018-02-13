@@ -58,19 +58,29 @@
 
 		.search_container form input#s
         {
-			max-width:100px;
+			width:100px;
 			float:right;
             display:inline-block;
 			background-color: rgba(255, 255, 255, 0.5);
             border:1px solid #ccc;
         }
+
+		#photo_grid
+		{
+			border: 1px solid #ff0000;
+    		display: flex;
+    		flex-wrap: wrap;
+    		padding: 0 4px;
+		}
 	</style>
 
 	<title>pindex - photo search</title>
 </head>
 <body>
 	<div id="bkg_img"></div>
-	
+	<div id="photo_grid">
+
+	</div>	
 	<div id="tool_bar">
 		<div class="search_container">
 			<div id="create-search-form">

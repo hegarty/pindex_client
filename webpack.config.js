@@ -21,7 +21,8 @@ module.exports =
 			use: 
 			{
 	  			loader: "babel-loader"
-			}
+			},
+			//options:{ plugins:["transform-class-properties",{"spec": true }] },
 		},
 		{
 			test: /\.html$/,
