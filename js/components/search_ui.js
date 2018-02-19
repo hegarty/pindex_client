@@ -2,26 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import elasticsearch from "elasticsearch";
 
+import store from "../store/index";
+import { addResults } from "../actions/index";
+
+        window.store = store;
+ window.addResults = addResults;
+
 class Search_ui extends React.Component {
 
 	constructor()
 	{
 		super();
-		this.handle_onchange = this.handle_onchange.bind(this);
-		//this.mapStateToProps = this.mapStateToProps.bind(this);	
-		this.state =
-		{
-			query:'',
-			//displayed_results:this.props.results
-		}
-	}
-
-	m(state) 
-	{
-  		return 
-		{
-    		count:'t'
-  		};
+		//this.handle_onchange = this.handle_onchange.bind(this);
+		//this.handle_onsubmit = this.handle_onsubmit.bind(this);
 	}
 
 	search(t,type)
@@ -44,8 +37,10 @@ class Search_ui extends React.Component {
             console.log('Hits: '+hits);
         	if(type=='submit')
 			{
-				this.setState({query:t,displayed_results:hits});
-				render_page(hits);
+				console.log('submit made');
+				store.dispatch( addResults(hits));
+				//this.setState({query:t,displayed_results:hits});
+				//render_page(hits);
 			}
 		},
         function (error)
@@ -55,15 +50,13 @@ class Search_ui extends React.Component {
 
 	}
 
-	handle_onsubmit(event)
-	{
+	handle_onsubmit=(event)=>{
 		let t = document.getElementById('q').value
 		this.search(t,'submit');
 	}
 
 
-	handle_onchange(event)
-	{
+	handle_onchange=(event)=>{
 		let t = event.target.value;
 		//this.search(t);	
 	}

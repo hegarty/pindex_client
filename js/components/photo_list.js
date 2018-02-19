@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import store from "../store/index";
+import { results } from "../actions/index";
+
 class Photo_grid extends React.Component {
 
 	constructor()
