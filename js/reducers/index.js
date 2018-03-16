@@ -2,6 +2,7 @@ import { ADD_RESULTS } from "../constants/action-types";
 
 const initialState = { results: [] };
 
+
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) 
 	{

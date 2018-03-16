@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { connect } from "react-redux";
 import store from "../store/index";
 import { results } from "../actions/index";
+
+const mapStateToProps = state => {
+  return { results: state.resultss };
+};
 
 class Photo_grid extends React.Component {
 
@@ -25,7 +29,8 @@ class Photo_grid extends React.Component {
 		);
   	}
 }
-export default Search_ui;
+export default Photo_grid;
 
 const wrapper = document.getElementById("photo_grid");
 wrapper ? ReactDOM.render(<Photo_grid />, wrapper) : false;
+

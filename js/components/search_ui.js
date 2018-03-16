@@ -1,33 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import elasticsearch from "elasticsearch";
 
+import { connect } from "react-redux";
 import store from "../store/index";
 import { addResults } from "../actions/index";
 
-        window.store = store;
+ window.store = store;
  window.addResults = addResults;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addResults: result => dispatch(addResults(result))
+  };
+};
 
 class Search_ui extends React.Component {
 
 	constructor()
 	{
 		super();
-		//this.handle_onchange = this.handle_onchange.bind(this);
+		this.search = this.search.bind(this);
+		//this.props = this.props.bind(this);
 		//this.handle_onsubmit = this.handle_onsubmit.bind(this);
 	}
 
-	search(t,type)
+	search(t,type,props=this.props)
 	{
 		let uri = 'https://search-media-tjri2esr2yapx2hwuug7oh6f3y.us-east-1.es.amazonaws.com';
-
         let client = new elasticsearch.Client(
         {
             host: uri,
             log: 'trace'
         });
-
-        client.search(
+		
+		client.search(
         {
             q:t
         })
@@ -38,7 +46,8 @@ class Search_ui extends React.Component {
         	if(type=='submit')
 			{
 				console.log('submit made');
-				store.dispatch( addResults(hits));
+				props.addResults(hits);
+				//store.dispatch(addResults(hits));
 				//this.setState({query:t,displayed_results:hits});
 				//render_page(hits);
 			}
@@ -50,7 +59,7 @@ class Search_ui extends React.Component {
 
 	}
 
-	handle_onsubmit=(event)=>{
+	handle_onsubmit=({event})=>{
 		let t = document.getElementById('q').value
 		this.search(t,'submit');
 	}
@@ -58,6 +67,7 @@ class Search_ui extends React.Component {
 
 	handle_onchange=(event)=>{
 		let t = event.target.value;
+		//this.props.addResults(t);
 		//this.search(t);	
 	}
 
@@ -81,7 +91,9 @@ class Search_ui extends React.Component {
 		);
   	}
 }
-export default Search_ui;
 
+const Search_interface = connect(null, mapDispatchToProps)(Search_ui);
+
+export default Search_interface;
 const wrapper = document.getElementById("create-search-form");
 wrapper ? ReactDOM.render(<Search_ui />, wrapper) : false;
