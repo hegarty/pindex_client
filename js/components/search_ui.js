@@ -95,5 +95,5 @@ class Search_ui extends React.Component {
 const Search_interface = connect(null, mapDispatchToProps)(Search_ui);
 
 export default Search_interface;
-const wrapper = document.getElementById("create-search-form");
-wrapper ? ReactDOM.render(<Search_ui />, wrapper) : false;
+//const wrapper = document.getElementById("create-search-form");
+//wrapper ? ReactDOM.render(<Search_ui />, wrapper) : false;

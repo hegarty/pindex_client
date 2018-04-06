@@ -1,36 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
-import store from "../store/index";
-import { results } from "../actions/index";
-
+//import store from "../store/index";
+//import { results } from "../actions/index";
+import { render } from 'react-dom';
+import Gallery from 'react-grid-gallery';
 const mapStateToProps = state => {
-  return { results: state.resultss };
+	/*
+	console.log('okk'+state.results);
+	
+	if(typeof state != 'undefined' && typeof state.results[0] != 'undefined')
+	{
+		console.log('total: '+state.results.length);
+		console.log(JSON.stringify(state.results));	
+		state.results.map((el,index) => ( console.log(index,JSON.stringify(el[index]))))
+  	}
+	*/
+	return { results: state.results };
 };
 
-class Photo_grid extends React.Component {
-
-	constructor()
-	{
-		super();
-		this.handle_onchange = this.handle_onchange.bind(this);
+const grid = ({ results }) => 
+(
+	<section className="masonry">
+    {
+		results.map((el,index) => 
+		(
+			
+			el.map((z) => 
+			(
+      			<figure key={z._source.resource} className="grid-item"><img src={z._source.resource} className="photo" /></figure>
+			))
+			
+    	))
 	}
+  	</section>
+);
 
-	handle_onchange(event)
-	{
-		let t = event.target.value;
-		//this.search(t);	
-	}
 
-	render() { 
-		return (
-		  <div id="grid">
-		  </div>
-		);
-  	}
-}
+const Photo_grid = connect(mapStateToProps)(grid);
 export default Photo_grid;
 
-const wrapper = document.getElementById("photo_grid");
-wrapper ? ReactDOM.render(<Photo_grid />, wrapper) : false;
+//const wrapper = document.getElementById("photo_grid");
+//wrapper ? ReactDOM.render(<Photo_grid />, wrapper) : false;
 

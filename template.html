@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" >
+	
+	<style type = "text/css">
+		
+		/*
+		#bkg_img
+		{
+			display:block;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:-1;
+			background: url("https://s3.amazonaws.com/pindex908/IMG_0015.JPG");
+    		background-repeat: no-repeat;
+    		background-size: cover;
+			filter: blur(0px);
+			width:100%;
+			height:100%;
+		}
+		*/
+
+		#tool_bar
+		{
+			display:block;
+			position:absolute;
+			margin:0 auto;
+			padding:0;
+			bottom:0;
+			left:0;
+			height:50px;
+			width:100%;
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+			border:1px solid #ffcc00;
+		}
+		
+		.search_container
+		{
+			display:block;
+			margin:0 auto;
+			width:75%;
+			border:1px solid red;
+		}
+
+		.search_container form
+		{
+			display:flex;
+			border:1px solid yellow;
+			width:100%;
+		}
+		
+        .search_container form input#q
+        {
+			display:inline-block;
+			flex-grow: 1;
+			background-color: rgba(255, 255, 255, 0.5);
+        	border:1px solid #ccc;
+		}
+
+		.search_container form input#s
+        {
+			width:100px;
+			float:right;
+            display:inline-block;
+			background-color: rgba(255, 255, 255, 0.5);
+            border:1px solid #ccc;
+        }
+		/*
+		#photo_grid
+		{
+			border: 1px solid #ff0000;
+    		display: flex;
+    		flex-wrap: wrap;
+    		padding: 0 4px;
+		}
+		*/
+
+		/*
+		#photo_grid
+		{
+			display: grid;
+			grid-template: repeat(6, 1fr) / repeat(7, 1fr);
+			background: #fff;
+			grid-gap: 2px;
+			min-height: 0; 
+			min-width: 0;   
+		}
+		*/
+
+		.grid
+		{ 
+			float:left;
+			max-height: 200px; 
+		}
+	
+		.grid img
+		{
+			max-height:200px;
+		}
+
+	</style>
+
+	<title>pindex - photo search</title>
+</head>
+<body>
+	<div id="bkg_img"></div>
+	<style type="text/css">
+		/*
+		section {
+		display: flex;
+		flex-wrap: wrap;
+		}
+
+		section::after {
+		content: '';
+		flex-grow: 999999999;
+		}
+
+		.grid {
+		margin: 2px;
+		background-color: violet;
+		position: relative;
+		}
+
+		i{
+		display: block;
+		}
+
+		img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		vertical-align: bottom;
+		}
+		*/
+
+
+	
+	<style>
+
+	body {
+    font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+    margin: 0;
+    background: #e9e9e9;
+}
+
+div.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+section.masonry 
+{
+    margin: 0;
+    padding: 0;
+    column-count:5;
+	column-gap: 0;
+    font-size: 0em;
+}
+
+figure.grid-item 
+{
+    display: inline-block;
+    width: 100%;
+	height:171px;
+	margin:0;
+}
+
+figure.grid-item img.photo
+{
+	
+	width:100%;
+	height:171px;
+	object-fit: cover;
+	
+}
+/*
+@media only screen and (min-width: 400px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .masonry {
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .masonry {
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .masonry {
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+*/
+
+	</style>
+
+
+<div class="wrapper">
+	<section class="masonry">
+	
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0004.PNG" class="photo">
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0012.JPG" class="photo">
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0015.JPG" class="photo">				
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0014.JPG" class="photo">
+		</figure>
+		<figure class="grid-item">	
+		<img src="https://s3.amazonaws.com/pindex908/surprised.jpg" class="photo">
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0013.JPG" class="photo">
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0007.JPG" class="photo">	
+		</figure>
+		<figure class="grid-item">
+		<img src="https://s3.amazonaws.com/pindex908/IMG_0016.JPG" class="photo">
+		</figure>
+		<figure class="grid-item"><img src="https://s3.amazonaws.com/pindex908/IMG_0017.PNG" class="photo">
+		</figure>
+</section>
+</div>
+
+	</div>	
+	<div id="tool_bar">
+		<div class="search_container">
+			<div id="search_form">
+				<!-- form -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>
