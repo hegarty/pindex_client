@@ -32,7 +32,7 @@ class Search_ui extends React.Component {
         let client = new elasticsearch.Client(
         {
             host: uri,
-            log: 'trace'
+            //log: 'trace'
         });
 		
 		client.search(
@@ -42,10 +42,10 @@ class Search_ui extends React.Component {
         .then(function (body)
         {
             let hits = body.hits.hits;
-            console.log('Hits: '+hits);
+            //console.log('Hits: '+hits);
         	if(type=='submit')
 			{
-				console.log('submit made');
+				//console.log('submit made');
 				props.addResults(hits);
 				//store.dispatch(addResults(hits));
 				//this.setState({query:t,displayed_results:hits});
@@ -54,7 +54,7 @@ class Search_ui extends React.Component {
 		},
         function (error)
         {
-            console.trace(error.message);
+            //console.trace(error.message);
         });
 
 	}
