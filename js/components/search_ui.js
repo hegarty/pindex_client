@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 import store from "../store/index";
 import { addResults } from "../actions/index";
 
- window.store = store;
- window.addResults = addResults;
+window.store = store;
+window.addResults = addResults;
 
 const mapDispatchToProps = dispatch => {
   return {
